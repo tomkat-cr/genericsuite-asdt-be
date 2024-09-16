@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenericSuite ASDT - Crew Request Generator</title>
+</head>
+<body>
+    <h1>GenericSuite ASDT - Crew Request Generator</h1>
+    <form id="generateForm">
+        <label for="project">Project:</label>
+        <textarea id="project" name="project" required></textarea>
+        <br>
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" name="topic" required>
+        <br><br>
+        <button type="submit">Generate</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('generateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = new FormData(this);
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = 'Generating...';
+
+            fetch('/generate', {
+                method: 'POST',
+                body: form
+            }).then(response => {
+                const eventSource = new EventSource(response.url);
+
+                eventSource.onmessage = (event) => {
+                    console.log(event.data);
+                    outputDiv.innerHTML += event.data + '<br>';
+                };
+
+                eventSource.onerror = (error) => {
+                    console.error('EventSource failed:', error);
+                    eventSource.close();
+                    outputDiv.innerHTML += '<br>Generation complete.';
+                };
+            }).catch(error => {
+                console.error('Fetch error:', error);
+                outputDiv.innerHTML = 'An error occurred. Please try again.';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -45,10 +45,14 @@ packages = [
 python = ">=3.10,<=3.13"
 crewai = { extras = ["tools"], version = ">=0.55.2,<1.0.0" }
 setuptools = "^75.0.0"
+fastapi = "^0.114.2"
+uvicorn = "^0.30.6"
+python-multipart = "^0.0.9"
 
 [tool.poetry.scripts]
 genericsuite_asdt = "genericsuite_asdt.main:run"
 run_crew = "genericsuite_asdt.main:run"
+api = "genericsuite_asdt.api:run_api"
 train = "genericsuite_asdt.main:train"
 replay = "genericsuite_asdt.main:replay"
 test = "genericsuite_asdt.main:test"
