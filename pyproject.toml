@@ -1,0 +1,58 @@
+[project]
+name = "genericsuite_asdt"
+version = "0.1.0"
+authors = [
+    { name="Carlos J. Ramirez", email="tomkat_cr@yahoo.com" }
+]
+description = "GenericSuite Agentic Software Development Team (ASDT) backend"
+readme = "README.md"
+requires-python = ">=3.10,<=3.13"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    "License :: OSI Approved :: ISC License",
+    "Programming Language :: Python :: 3",
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    "Operating System :: OS Independent",
+    'Topic :: Software Development',
+]
+dynamic = [
+    "license",
+]
+
+[project.urls]
+Homepage = "https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-ASDT/"
+Issues = "https://github.com/tomkat-cr/genericsuite-asdt-be/issues"
+
+[tool.poetry]
+name = "genericsuite_asdt"
+version = "0.1.0"
+description = "GenericSuite Agentic Software Development Team (ASDT) backend"
+authors = ["Carlos J. Ramirez <tomkat_cr@yahoo.com>"]
+license = "ISC"
+readme = "README.md"
+repository = "https://github.com/tomkat-cr/genericsuite-asdt-be.git"
+homepage = "https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-ASDT/"
+packages = [
+    { include = "genericsuite_asdt" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = ">=0.55.2,<1.0.0" }
+setuptools = "^75.0.0"
+
+[tool.poetry.scripts]
+genericsuite_asdt = "genericsuite_asdt.main:run"
+run_crew = "genericsuite_asdt.main:run"
+train = "genericsuite_asdt.main:train"
+replay = "genericsuite_asdt.main:replay"
+test = "genericsuite_asdt.main:test"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
