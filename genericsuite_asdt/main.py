@@ -2,15 +2,13 @@
 import sys
 import os
 
+from genericsuite_asdt.genericsuite.utils.app_logger import log_debug
+
 from genericsuite_asdt.crew import GenericsuiteAsdtCrew
-
-from genericsuite_asdt.utils.datetime import (
-    get_inputs,
-    log_debug,
-)
+from genericsuite_asdt.utils.utilities import get_inputs
 
 
-DEBUG = os.environ.get('DEBUG', '1') == '1'
+DEBUG = True
 
 
 # This main file is intended to be a way for your to run your

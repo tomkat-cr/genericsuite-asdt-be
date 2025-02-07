@@ -1,8 +1,72 @@
+feature_addition_task:
+  description: >
+    Add a new feature to the software project. Ensure the feature is well-integrated
+    with the existing codebase, write appropriate tests, and provide necessary documentation.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'A well-implemented feature, fully tested, and documented.'
+  agent: senior_software_engineer
+
+bug_fixing_task:
+  description: >
+    Identify and resolve errors in the software. Focus on fixing bugs and improving
+    code efficiency. Document all changes and create corresponding test cases.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'Clean, error-free code with tests that confirm the fixes.'
+  agent: software_quality_engineer
+
+testing_task:
+  description: >
+    Develop and run a comprehensive set of unit and integration tests for the software.
+    Ensure code coverage and robustness for all features.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'A full test suite with high coverage and a report on test results.'
+  agent: test_engineer
+
+frontend_development_task:
+  description: >
+    Develop the frontend for the project using JavaScript, ReactJS, HTML, and CSS.
+    Ensure responsiveness, accessibility, and a seamless user experience.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'A fully functional and visually appealing frontend.'
+  agent: frontend_developer
+
+backend_development_task:
+  description: >
+    Develop the backend APIs and logic using Python. Ensure scalability, maintainability,
+    and performance of the server-side logic. Integrate it seamlessly with the frontend.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'A fully functional and tested backend API with proper documentation.'
+  agent: backend_developer
+
+devops_task:
+  description: >
+    Set up CI/CD pipelines using GitHub Actions. Use Docker for containerization,
+    and Terraform to manage the infrastructure. Ensure the application runs smoothly
+    on AWS, GCP, and Azure platforms.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'A fully configured CI/CD pipeline and infrastructure setup across multiple clouds.'
+  agent: devops_specialist
+
+ui_ux_task:
+  description: >
+    Design the UI/UX of the application. Create wireframes, mockups, and a prototype that
+    ensures a seamless and aesthetically pleasing user experience.
+    The details about it are: {project}.
+    The current date is {current_date}.
+  expected_output: 'A complete UI/UX design including wireframes, mockups, and a user-friendly prototype.'
+  agent: ui_ux_specialist
+
 research_task:
   description: >
     Conduct a thorough research about {topic}
     Make sure you find any interesting and relevant information given
-    the current year is {year}.
+    the current date is {current_date}.
   expected_output: >
     A list with 10 bullet points of the most relevant information about {topic}
   agent: researcher
@@ -15,53 +79,3 @@ reporting_task:
     A fully fledge reports with the mains topics, each with a full section of information.
     Formatted as markdown without '```'
   agent: reporting_analyst
-
-feature_addition_task:
-  description: >
-    Add a new feature to the software project. Ensure the feature is well-integrated
-    with the existing codebase, write appropriate tests, and provide necessary documentation.
-  expected_output: 'A well-implemented feature, fully tested, and documented.'
-  agent: senior_software_engineer
-
-bug_fixing_task:
-  description: >
-    Identify and resolve errors in the software. Focus on fixing bugs and improving
-    code efficiency. Document all changes and create corresponding test cases.
-  expected_output: 'Clean, error-free code with tests that confirm the fixes.'
-  agent: software_quality_engineer
-
-testing_task:
-  description: >
-    Develop and run a comprehensive set of unit and integration tests for the software.
-    Ensure code coverage and robustness for all features.
-  expected_output: 'A full test suite with high coverage and a report on test results.'
-  agent: test_engineer
-
-frontend_development_task:
-  description: >
-    Develop the frontend for the project using JavaScript, ReactJS, HTML, and CSS.
-    Ensure responsiveness, accessibility, and a seamless user experience.
-  expected_output: 'A fully functional and visually appealing frontend.'
-  agent: frontend_developer
-
-backend_development_task:
-  description: >
-    Develop the backend APIs and logic using Python. Ensure scalability, maintainability,
-    and performance of the server-side logic. Integrate it seamlessly with the frontend.
-  expected_output: 'A fully functional and tested backend API with proper documentation.'
-  agent: backend_developer
-
-devops_task:
-  description: >
-    Set up CI/CD pipelines using GitHub Actions. Use Docker for containerization,
-    and Terraform to manage the infrastructure. Ensure the application runs smoothly
-    on AWS, GCP, and Azure platforms.
-  expected_output: 'A fully configured CI/CD pipeline and infrastructure setup across multiple clouds.'
-  agent: devops_specialist
-
-ui_ux_task:
-  description: >
-    Design the UI/UX of the application. Create wireframes, mockups, and a prototype that
-    ensures a seamless and aesthetically pleasing user experience.
-  expected_output: 'A complete UI/UX design including wireframes, mockups, and a user-friendly prototype.'
-  agent: ui_ux_specialist

@@ -48,6 +48,7 @@ setuptools = "^75.0.0"
 fastapi = "^0.114.2"
 uvicorn = "^0.30.6"
 python-multipart = "^0.0.9"
+genericsuite-ai = {path = "../genericsuite-be-ai"}
 
 [tool.poetry.scripts]
 genericsuite_asdt = "genericsuite_asdt.main:run"

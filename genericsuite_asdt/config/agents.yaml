@@ -1,4 +1,14 @@
 # Software Development Team
+manager:
+  role: "Project Manager"
+  goal: "Efficiently manage the crew and ensure high-quality task completion"
+  backstory: >
+    You're an experienced project manager, skilled in overseeing complex projects
+    and guiding teams to success. Your role is to coordinate the efforts of the
+    crew members, ensuring that each task is completed on time and to the
+    highest standard.
+  verbose: true
+  allow_delegation: True
 
 senior_software_engineer:
   role: 'Senior Software Engineer'
@@ -9,6 +19,7 @@ senior_software_engineer:
     programming languages and frameworks.
   verbose: true
   memory: true
+  allow_delegation: false
 
 software_quality_engineer:
   role: 'Software Quality Control Engineer'
@@ -19,6 +30,7 @@ software_quality_engineer:
     nothing slips through the cracks.
   verbose: true
   memory: true
+  allow_delegation: false
 
 test_engineer:
   role: 'Test Engineer'
@@ -29,6 +41,7 @@ test_engineer:
     and robustness.
   verbose: true
   memory: true
+  allow_delegation: false
 
 project_architect:
   role: 'Project Architect'
@@ -38,6 +51,7 @@ project_architect:
     the different modules and features integrate seamlessly into the overall project.
   verbose: true
   memory: true
+  allow_delegation: false
 
 frontend_developer:
   role: 'Frontend Developer'
@@ -48,6 +62,7 @@ frontend_developer:
     interfaces with excellent design principles using HTML and CSS.
   verbose: true
   memory: true
+  allow_delegation: false
 
 backend_developer:
   role: 'Backend Developer'
@@ -57,6 +72,7 @@ backend_developer:
     You focus on building scalable, maintainable, and high-performance server-side logic.
   verbose: true
   memory: true
+  allow_delegation: false
 
 devops_specialist:
   role: 'DevOps Specialist'
@@ -68,6 +84,7 @@ devops_specialist:
     Terraform. You are also proficient with cloud platforms such as AWS, GCP, and Azure.
   verbose: true
   memory: true
+  allow_delegation: false
 
 ui_ux_specialist:
   role: 'UI/UX Specialist'
@@ -78,6 +95,7 @@ ui_ux_specialist:
     accessibility, and efficiency, keeping the end-user in mind at all times.
   verbose: true
   memory: true
+  allow_delegation: false
 
 # Research Team
 
@@ -90,6 +108,8 @@ researcher:
     You're a seasoned researcher with a knack for uncovering the latest
     developments in {topic}. Known for your ability to find the most relevant
     information and present it in a clear and concise manner.
+  verbose: true
+  allow_delegation: false
 
 reporting_analyst:
   role: >
@@ -100,3 +120,5 @@ reporting_analyst:
     You're a meticulous analyst with a keen eye for detail. You're known for
     your ability to turn complex data into clear and concise reports, making
     it easy for others to understand and act on the information you provide.
+  verbose: true
+  allow_delegation: false
