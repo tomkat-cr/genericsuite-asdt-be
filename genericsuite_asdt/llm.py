@@ -103,7 +103,7 @@ def get_llm_data(
             'gemini')
         llm_config["api_key"] = os.environ.get('GOOGLE_API_KEY')
 
-    if selected_llm_provider == 'anthropic':
+    elif selected_llm_provider == 'anthropic':
         # Using Anthropic's Claude
         llm_name = get_llm_name(
             'ANTHROPIC',
@@ -214,7 +214,7 @@ def get_llm_model_object(
         '>> GET_LLM_MODEL_OBJECT'
         f'\n | agent_role: {agent_role}'
         f'\n | llm_provider: {llm_provider}'
-        # f'\n | model_data: {model_data}'
+        f'\n | model_data: {model_data}'
         f'\n | model_param: {model_param}'
         # f'\n | llm_model_object: {llm}'
     )

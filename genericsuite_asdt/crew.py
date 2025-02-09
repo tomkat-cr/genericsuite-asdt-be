@@ -1,6 +1,8 @@
 """
 GenericsuiteAsdt crew class
 """
+import os
+
 from pydantic import BaseModel, Field
 
 from crewai import Agent, Crew, Process, Task
@@ -59,6 +61,7 @@ class GenericsuiteAsdtCrew:
     manager_agent_llm = get_llm_model_object("manager")
     coding_agent_llm = get_llm_model_object("coding")
     reasoning_agent_llm = get_llm_model_object("reasoning")
+    planning_agent_llm = get_llm_model_object("planning")
 
     date_time = get_current_date_time()
 
@@ -261,24 +264,26 @@ class GenericsuiteAsdtCrew:
         """
         Creates the GenericsuiteAsdt crew
         """
+        options = {
+            "agents": self.agents,
+            "tasks": self.tasks,
 
-        return Crew(
-            agents=self.agents,  # Automatically created the @agent decorator
-            tasks=self.tasks,  # Automatically created by the @task decorator
-
-            verbose=True,
-            # memory=True,
-            # debug=DEBUG,
-
-            # planning=True,  # Enable planning feature for the crew
-            # planning_llm=self.llm,
+            "verbose": True,
+            # "memory": True,
+            # "debug": DEBUG,
 
             # https://docs.crewai.com/how-to/Your-Own-Manager-Agent
-            manager_agent=self.manager(),
-            manager_llm=self.manager_agent_llm,
+            "manager_agent": self.manager(),
+            "manager_llm": self.manager_agent_llm,
 
             # In case you wanna use that instead
             # https://docs.crewai.com/how-to/Hierarchical/
-            process=Process.hierarchical,
-            # process=Process.sequential,
-        )
+            "process": Process.hierarchical,
+            # "process": Process.sequential,
+        }
+        if os.environ.get('DEFAULT_PLANNING_LLM_PROVIDER'):
+            # Enable planning feature for the crew
+            options["planning"] = True
+            options["planning_llm"] = self.planning_agent_llm
+
+        return Crew(**options)

@@ -23,7 +23,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### New
 Add LLM selection and configuration using environment variables, and including OpenAI, Google, Ollama, Anthropic, Hugging Face, Groq, NVIDIA, X AI, Together AI, AI/ML API and OpenRouter [GS-168].
 Add the ideation task to generate ideas for the "AIstronauts-Space Agents on a mission hackathon" from lablab.ai [GS-55].
-Add different environment variables for coding, reasoning and management agents [GS-168].
+Add different environment variables for coding, reasoning, planning and management llms and models, so normal agents, manager agent and planning agent can use them [GS-168].
+Add the planing agent, so the code generation actions are fired and iterated [GS-168].
 Add "openlit" monitoring tool [GS-168].
 Add generate output files on each task [GS-168].
 
