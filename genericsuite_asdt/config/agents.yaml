@@ -10,6 +10,7 @@ manager:
     highest standard.
   verbose: true
   allow_delegation: True
+  llm: manager
 
 # Software Development Team
 
@@ -23,6 +24,7 @@ senior_software_engineer:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: coding
 
 software_quality_engineer:
   role: 'Software Quality Control Engineer'
@@ -45,6 +47,7 @@ test_engineer:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: coding
 
 project_architect:
   role: 'Project Architect'
@@ -55,6 +58,7 @@ project_architect:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: reasoning
 
 frontend_developer:
   role: 'Frontend Developer'
@@ -66,6 +70,7 @@ frontend_developer:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: coding
 
 backend_developer:
   role: 'Backend Developer'
@@ -76,6 +81,7 @@ backend_developer:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: coding
 
 # DEVOPS
 
@@ -105,6 +111,7 @@ business_analyst:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: reasoning
 
 creative_innovative_team:
   role: >
@@ -117,6 +124,7 @@ creative_innovative_team:
   verbose: true
   memory: true
   allow_delegation: false
+  llm: reasoning
 
 ui_ux_specialist:
   role: 'UI/UX Specialist'
@@ -143,6 +151,8 @@ researcher:
   verbose: true
   memory: true
   allow_delegation: false
+  tools_list:
+    - search_tool
 
 reporting_analyst:
   role: >

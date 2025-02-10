@@ -57,7 +57,11 @@ if [ "$ACTION" = "run" ]; then
             exit 1
         fi
     fi
-    cd openlit
+    if ! cd /tmp/openlit/openlit
+    then
+        echo "ERROR: cd /tmp/openlit/openlit failed [1]"
+        exit 1
+    fi
     if ! docker compose up -d
     then
         echo "ERROR: docker compose up -d failed"
@@ -70,8 +74,17 @@ elif [ "$ACTION" = "down" ]; then
     echo ""
     echo "Stop OpenLit"
     echo ""
-    cd /tmp/openlit
-    docker compose down
+    if ! cd /tmp/openlit/openlit
+    then
+        echo "ERROR: cd /tmp/openlit/openlit failed [2]"
+        exit 1
+    fi
+    if ! docker compose down
+    then
+        echo "ERROR: docker compose down failed"
+        exit 1
+    fi
+    docker ps
 
 elif [ "$ACTION" = "logs" ]; then
     echo ""

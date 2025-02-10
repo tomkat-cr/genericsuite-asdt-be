@@ -15,25 +15,19 @@ lock:
 
 # Testing
 
-test: set_envvars
-	poetry run pytest tests
+test:
+	bash scripts/run_agents.sh test
 
-crewai_test: set_envvars
-	# e.g. PROJECT="Generate blog posts for the most updated articles of the last week" TOPIC="AI LLMs" make crewai_test
-	poetry run test "${PROJECT}" "${TOPIC}"
+crewai_test:
+	bash scripts/run_agents.sh crewai_test
 
 # App run
 
-set_envvars:
-	set -o allexport; source .env; set +o allexport;
+api:
+	bash scripts/run_agents.sh api
 
-api: set_envvars
-	poetry run api
-
-run: set_envvars
-	# e.g. PROJECT="generate unit test based on pytest to all functions and methods in the repo https://github.com/tomkat-cr/genericsuite-be" TOPIC="" make run
-	# e.g. PROJECT="Generate blog posts for the most updated articles of the lst week" TOPIC="AI LLMs" make run
-	poetry run run_crew "${PROJECT}" "${TOPIC}"
+run:
+	bash scripts/run_agents.sh run "${PROJECT}" "${TOPIC}"
 
 crewai_run: run
 
