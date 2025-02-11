@@ -34,6 +34,35 @@ def error_resultset(
     return result
 
 
+def get_file_or_text(file_or_text: str) -> dict:
+    """
+    Returns the content of a file if it starts with '[' and ends with ']'.
+    Otherwise, returns the original string.
+
+    Args:
+        file_or_text (str): The string to check.
+
+    Returns:
+        str: The content of the file, or the original string.
+    """
+    result = get_default_resultset()
+    result['content'] = None
+    result['file_path'] = None
+    if file_or_text.startswith('[') and file_or_text.endswith(']'):
+        try:
+            file_or_text = file_or_text[1:-1]
+            with open(file_or_text, 'r') as f:
+                result['content'] = f.read()
+                result['file_path'] = file_or_text
+        except Exception as e:
+            result['error'] = True
+            result['error_message'] = f"Error parsing file or text: {e}"
+            return result
+    else:
+        result['content'] = file_or_text
+    return result
+
+
 def get_inputs(project: str = None, topic: str = None,
                mandatory: bool = False):
     result = get_default_resultset()
@@ -53,8 +82,25 @@ def get_inputs(project: str = None, topic: str = None,
             result['warning'] = True
             result['warning_message'] = \
                 'Project and topic not provided. User input required.'
-    result['project'] = project
-    result['topic'] = topic
+
+    file_or_text = get_file_or_text(project)
+    if file_or_text['error']:
+        result['error'] = True
+        result['error_message'] = \
+            f'Project cannot be loaded from file' \
+            f' "{file_or_text["file_path"]}":' \
+            f' {file_or_text["error_message"]}'
+    result['project'] = file_or_text['content']
+
+    file_or_text = get_file_or_text(topic)
+    if file_or_text['error']:
+        result['error'] = True
+        result['error_message'] = \
+            f'Topic cannot be loaded from file' \
+            f' "{file_or_text["file_path"]}":' \
+            f' {file_or_text["error_message"]}'
+    result['topic'] = file_or_text['content']
+
     result['year'] = get_current_year()
     result['current_date'] = get_current_date()
     return result

@@ -47,6 +47,7 @@ test_engineer:
   verbose: true
   memory: true
   allow_delegation: false
+  allow_code_execution: True
   llm: coding
 
 project_architect:
@@ -70,6 +71,7 @@ frontend_developer:
   verbose: true
   memory: true
   allow_delegation: false
+  allow_code_execution: True
   llm: coding
 
 backend_developer:
@@ -81,6 +83,7 @@ backend_developer:
   verbose: true
   memory: true
   allow_delegation: false
+  allow_code_execution: True
   llm: coding
 
 # DEVOPS
