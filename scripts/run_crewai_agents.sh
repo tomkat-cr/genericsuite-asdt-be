@@ -1,5 +1,5 @@
 #!/bin/bash
-# run_agents.sh
+# run_crewai_agents.sh
 # 2025-02-10 | CR
 # Run the GenericSuite CrewAI Agents
 #
@@ -31,7 +31,7 @@ if [ "$ACTION" = "" ]; then
     ACTION="$1"
 fi
 if [ "$ACTION" = "" ]; then
-    echo "Usage: run_agents.sh <run|api|test|crewai_test>"
+    echo "Usage: run_crewai_agents.sh <run|api|test|crewai_test>"
     exit 1
 fi
 
@@ -92,6 +92,6 @@ elif [ "$ACTION" = "crewai_test" ]; then
     crewai_test
 else
     echo "Unknown action: $ACTION"
-    echo "Usage: run_agents.sh <run|api|test|crewai_test>"
+    echo "Usage: run_crewai_agents.sh <run|api|test|crewai_test>"
     exit 1
 fi

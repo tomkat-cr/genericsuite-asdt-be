@@ -29,7 +29,8 @@ def get_configured_crew():
     """
     Get the configured crew.
     """
-    use_generic_crew = os.environ.get('USE_GENERIC_CREW', "true") == "true"
+    use_generic_crew = \
+        os.environ.get('CREWAI_USE_GENERIC_CREW', "true") == "true"
     _ = DEBUG and log_debug(
         f"CrewAI Get Configured Crew | Params: {use_generic_crew}")
     if use_generic_crew:

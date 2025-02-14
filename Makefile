@@ -16,18 +16,18 @@ lock:
 # Testing
 
 test:
-	bash scripts/run_agents.sh test
+	bash scripts/run_crewai_agents.sh test
 
 crewai_test:
-	bash scripts/run_agents.sh crewai_test
+	bash scripts/run_crewai_agents.sh crewai_test
 
 # App run
 
 api:
-	bash scripts/run_agents.sh api
+	bash scripts/run_crewai_agents.sh api
 
 run:
-	bash scripts/run_agents.sh run "${PROJECT}" "${TOPIC}"
+	bash scripts/run_crewai_agents.sh run "${PROJECT}" "${TOPIC}"
 
 crewai_run: run
 

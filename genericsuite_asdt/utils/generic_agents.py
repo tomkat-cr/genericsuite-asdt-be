@@ -20,7 +20,7 @@ from genericsuite_asdt.utils.utilities import get_default_resultset
 # Check our tools documentations for more information on how to use them
 from crewai_tools import SerperDevTool
 
-DEBUG = True
+DEBUG = False
 
 
 class SerperDevToolSchemaForPydanticV3(BaseModel):
@@ -68,7 +68,7 @@ def get_other_options(
     result["options"]["debug"] = DEBUG
     # result["options"]["memory"] = True
 
-    if os.environ.get('USE_MANAGER_AGENT', "true") == "true":
+    if os.environ.get('CREWAI_USE_MANAGER_AGENT', "true") == "true":
         if not manager_agent:
             result["error_message"] = "manager_agent is not set"
             return result
@@ -76,12 +76,12 @@ def get_other_options(
         result["options"]["manager_agent"] = manager_agent
         result["options"]["manager_llm"] = manager_agent_llm
 
-    if os.environ.get('USE_PLANNING_AGENT', "true") == "true":
+    if os.environ.get('CREWAI_USE_PLANNING_AGENT', "true") == "true":
         # Enable planning feature for the crew
         result["options"]["planning"] = True
         result["options"]["planning_llm"] = planning_agent_llm
 
-    process_type = os.environ.get('CREW_PROCESS', "hierarchical")
+    process_type = os.environ.get('CREWAI_CREW_PROCESS', "hierarchical")
     if process_type == "hierarchical":
         # In case you wanna use that instead
         # https://docs.crewai.com/how-to/Hierarchical/
@@ -105,10 +105,12 @@ class GenericAgentConfig():
 
         self.agent_config_file = \
             self.config.get("agent_config_file",
-                            os.environ.get("AGENTS_CONFIG_FILE"))
+                            os.environ.get("CREWAI_AGENTS_CONFIG_FILE",
+                                           "config/agents.yaml"))
         self.task_config_file = \
             self.config.get("task_config_file",
-                            os.environ.get("TASK_CONFIG_FILE"))
+                            os.environ.get("CREWAI_TASK_CONFIG_FILE",
+                                           "config/tasks.yaml"))
 
         self.llm = get_llm_model_object()
         self.manager_agent_llm = get_llm_model_object("manager")

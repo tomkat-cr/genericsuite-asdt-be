@@ -34,6 +34,21 @@ def error_resultset(
     return result
 
 
+def remove_undesired_chars(text: str) -> str:
+    """
+    Remove undesired chars from a string. This solves the error:
+    "ValueError: unsupported format character '%' (0x25) at index..."
+    during the Planning step of the crew execution
+
+    Args:
+        text (str): The string to clean.
+
+    Returns:
+        str: The cleaned string.
+    """
+    return text.replace('%', '%%')
+
+
 def get_file_or_text(file_or_text: str) -> dict:
     """
     Returns the content of a file if it starts with '[' and ends with ']'.
@@ -60,6 +75,8 @@ def get_file_or_text(file_or_text: str) -> dict:
             return result
     else:
         result['content'] = file_or_text
+    if result['content']:
+        result['content'] = remove_undesired_chars(result['content'])
     return result
 
 
@@ -90,7 +107,8 @@ def get_inputs(project: str = None, topic: str = None,
             f'Project cannot be loaded from file' \
             f' "{file_or_text["file_path"]}":' \
             f' {file_or_text["error_message"]}'
-    result['project'] = file_or_text['content']
+    else:
+        result['project'] = file_or_text['content']
 
     file_or_text = get_file_or_text(topic)
     if file_or_text['error']:
@@ -99,7 +117,8 @@ def get_inputs(project: str = None, topic: str = None,
             f'Topic cannot be loaded from file' \
             f' "{file_or_text["file_path"]}":' \
             f' {file_or_text["error_message"]}'
-    result['topic'] = file_or_text['content']
+    else:
+        result['topic'] = file_or_text['content']
 
     result['year'] = get_current_year()
     result['current_date'] = get_current_date()

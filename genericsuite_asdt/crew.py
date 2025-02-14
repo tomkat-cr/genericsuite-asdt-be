@@ -1,6 +1,8 @@
 """
 GenericsuiteAsdt crew class
 """
+import os
+
 from crewai import Agent, Crew, Task
 from crewai.project import CrewBase, agent, crew, task
 
@@ -22,8 +24,10 @@ class GenericsuiteAsdtCrew:
     GenericsuiteAsdt crew class
     """
 
-    agents_config = "config/agents.yaml"
-    tasks_config = "config/tasks.yaml"
+    agents_config = os.environ.get("CREWAI_AGENTS_CONFIG_FILE",
+                                   "config/agents.yaml")
+    tasks_config = os.environ.get("CREWAI_TASK_CONFIG_FILE",
+                                  "config/tasks.yaml")
 
     llm = get_llm_model_object()
     manager_agent_llm = get_llm_model_object("manager")
@@ -132,21 +136,21 @@ class GenericsuiteAsdtCrew:
 
     # Tasks
 
-    @task
-    def ideation_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["ideation_task"],
-            # input_file="project_and_topic.md",
-            output_file=f"./outputs/{self.date_time}_030_ideation.md",
-        )
+    # @task
+    # def ideation_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["ideation_task"],
+    #         # input_file="project_and_topic.md",
+    #         output_file=f"./outputs/{self.date_time}_030_ideation.md",
+    #     )
 
-    @task
-    def business_analysis_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["business_analysis_task"],
-            # input_file="ideation.md",
-            output_file=f"./outputs/{self.date_time}_040_business_analysis.md",
-        )
+    # @task
+    # def business_analysis_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["business_analysis_task"],
+    #         # input_file="ideation.md",
+    #         output_file=f"./outputs/{self.date_time}_040_business_analysis.md",
+    #     )
 
     @task
     def feature_addition_task(self) -> Task:
@@ -197,18 +201,25 @@ class GenericsuiteAsdtCrew:
             output_file=f"./outputs/{self.date_time}_110_ui_ux.md",
         )
 
-    @task
-    def research_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["research_task"],
-            output_file=f"./outputs/{self.date_time}_120_research.md",
-        )
+    # @task
+    # def research_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["research_task"],
+    #         output_file=f"./outputs/{self.date_time}_120_research.md",
+    #     )
+
+    # @task
+    # def reporting_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["reporting_task"],
+    #         output_file=f"./outputs/{self.date_time}_130_report.md",
+    #     )
 
     @task
-    def reporting_task(self) -> Task:
+    def final_report(self) -> Task:
         return Task(
-            config=self.tasks_config["reporting_task"],
-            output_file=f"./outputs/{self.date_time}_130_report.md",
+            config=self.tasks_config["final_report"],
+            output_file=f"./outputs/{self.date_time}_120_final_report.md",
         )
 
     # Crew
