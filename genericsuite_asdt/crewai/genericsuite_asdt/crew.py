@@ -6,10 +6,11 @@ import os
 from crewai import Agent, Crew, Task
 from crewai.project import CrewBase, agent, crew, task
 
-from genericsuite_asdt.llm import get_llm_model_object
 from genericsuite_asdt.utils.datetime import get_current_date_time
 from genericsuite_asdt.utils.app_logger import log_error
-from genericsuite_asdt.utils.generic_agents import (
+
+from genericsuite_asdt.llm import get_llm_model_object
+from genericsuite_asdt.generic_agents import (
     GenericAgentConfig,
     search_tool,
     get_other_options,

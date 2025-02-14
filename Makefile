@@ -13,23 +13,35 @@ update:
 lock:
 	poetry lock
 
+crewai_install:
+	bash scripts/run_crewai_agents.sh install
+
+crewai_update:
+	bash scripts/run_crewai_agents.sh update
+
+crewai_lock:
+	bash scripts/run_crewai_agents.sh lock
+
 # Testing
 
-test:
+crewai_test:
 	bash scripts/run_crewai_agents.sh test
 
-crewai_test:
+crewai_other_test:
 	bash scripts/run_crewai_agents.sh crewai_test
+
+test: crewai_test
 
 # App run
 
-api:
-	bash scripts/run_crewai_agents.sh api
-
-run:
+crewai_run:
 	bash scripts/run_crewai_agents.sh run "${PROJECT}" "${TOPIC}"
 
-crewai_run: run
+crewai_api:
+	bash scripts/run_crewai_agents.sh api
+
+api: crewai_api
+run: crewai_run
 
 # Package publish
 
