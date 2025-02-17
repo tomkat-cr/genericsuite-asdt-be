@@ -1,8 +1,12 @@
 # GenericSuite Agentic Software Development Team (ASDT)
 
-Welcome to the GenericSuite Agentic Software Development Team (backend version) project. This project provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
+Welcome to the GenericSuite Agentic Software Development Team (backend version).
 
-This project is powered by different Agentic Frameworks, like [crewAI](https://crewai.com), [Camel AI](https://camel-ai.org), [LangGraph](https://www.langchain.com/langgraph) and [Smolagent](https://huggingface.co/docs/smolagents/index). With them set up a multi-agent AI system is straightforward, leveraging the powerful and flexiblility frameworks. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+This project provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
+
+This project is powered by different Agentic Frameworks, like [CrewAI](https://crewai.com), [Camel AI](https://camel-ai.org), [LangGraph](https://www.langchain.com/langgraph) and [Smolagent](https://huggingface.co/docs/smolagents/index). With them, set up a multi-agent AI system is astraightforward, leveraging these powerful and flexible frameworks.
+
+The goal is to enable AI Agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
 ## Installation
 
@@ -111,19 +115,18 @@ XAI_API_KEY=
 #DEFAULT_PLANNING_LLM_PROVIDER=openai
 ```
 
-NOTES:
-* By default, Ollama is used for all providers.
+NOTE: By default, `Ollama` is used for all providers.
 
 - Configure the models:
 
 ```env
-# Refer to the Models Section for more details...
+# Refer to the Models Section in the .env file for more details...
 ```
 
 - Set the agent team configurations:
 
-Copy `src/genericsuite_asdt/crewai/config/agents.yaml` to `config/agents.yaml` to define your agents
-Copy `src/genericsuite_asdt/crewai/config/tasks.yaml` to `config/tasks.yaml` to define your tasks
+    1. Copy `src/genericsuite_asdt/crewai/config/agents.yaml` to `config/agents.yaml` to define your agents
+    2. Copy `src/genericsuite_asdt/crewai/config/tasks.yaml` to `config/tasks.yaml` to define your tasks
 
 ## Running the Project
 
