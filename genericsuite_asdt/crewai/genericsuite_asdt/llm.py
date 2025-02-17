@@ -3,55 +3,14 @@ import os
 from crewai import LLM
 
 from genericsuite_asdt.utils.app_logger import log_debug
+from genericsuite_asdt.utils.utilities import (
+    get_llm_provider,
+    get_llm_name,
+    get_default_llm_settings,
+)
 
 
 DEBUG = True
-
-
-def get_llm_provider(llm_provider: str = None, agent_role: str = None) -> str:
-    if llm_provider is None:
-        selected_llm_provider = os.environ.get(
-            'DEFAULT_LLM_PROVIDER',
-            'ollama')
-    else:
-        selected_llm_provider = llm_provider
-    if agent_role is not None:
-        var_name = f'DEFAULT_{agent_role.upper()}_LLM_PROVIDER'
-        selected_llm_provider = os.environ.get(var_name, selected_llm_provider)
-    return selected_llm_provider
-
-
-def get_llm_name(
-    llm_var_base_name: str,
-    llm_def_val: str,
-    agent_role: str,
-    # ma_llm_var_name: str,
-    prefix: str = None
-) -> str:
-    """
-    Get the name of the LLM model to use. If agent_role is True,
-    try to find the LLM model name from the *_MANAGER_MODEL_NAME
-    environment variable. If it doesn't exist, use the e *_MODEL value,
-    if not, use the default value.
-
-    Args:
-        llm_var_base_name (str): LLM environment variable base name.
-        llm_def_val (str ): LLM default value.
-        agent_role (str): Agent type: 'manager', 'coding', 'reasoning'
-            or None.
-        ma_llm_var_name (str): Manager agent LLM environment variable name.
-        prefix (str): Prefix to add to the LLM name. Defaults to None.
-
-    Returns:
-        str: LLM model name.
-    """
-    llm_var_name = f"{llm_var_base_name}_MODEL_NAME"
-    llm = os.environ.get(llm_var_name, llm_def_val)
-    if agent_role:
-        ma_llm_var_name = f"{llm_var_base_name}_{agent_role.upper()}" \
-                          "_MODEL_NAME"
-        llm = os.environ.get(ma_llm_var_name, llm)
-    return f"{prefix+'/' if prefix else ''}{llm}"
 
 
 def get_llm_data(
@@ -72,16 +31,7 @@ def get_llm_data(
     """
     selected_llm_provider = get_llm_provider(llm_provider, agent_role)
     llm_config = {}
-    llm_settings = {
-        "temperature": 0.7,        # Higher for more creative outputs
-        # "timeout": 120,            # Seconds to wait for response
-        # "max_tokens": 4000,        # Maximum length of response
-        # "top_p": 0.9,              # Nucleus sampling parameter
-        # "frequency_penalty": 0.1,  # Reduce repetition
-        # "presence_penalty": 0.1,   # Encourage topic diversity
-        # "response_format": {"type": "json"},  # For structured outputs
-        # "seed": 42                 # For reproducible results
-    }
+    llm_settings = get_default_llm_settings()
 
     # LiteLLM models providers reference
     # https://docs.litellm.ai/docs/providers

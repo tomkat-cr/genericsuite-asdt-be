@@ -32,6 +32,7 @@ Add automatic generation of the crew, agents and tasks directly from the yaml fi
 Add "allow_code_execution" to developer and automated testing agents [GS-128].
 Add reading-from-file feature to `project` and `topic` inputs (content enclosed by square brackets means it's a file path) [GS-128].
 Add "examples/instructions.md" to build the `project` input as a PRD file (Product Requirements Document) [GS-128].
+Add Camel-AI agent society to the agent libraries.
 
 ### Changes
 Change: remove the GenericSuite dependency.

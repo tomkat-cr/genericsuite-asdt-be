@@ -1,0 +1,22 @@
+ideation_task:
+  description: >
+    Conduct the ideation task if it's requested (e.g. if '{project}' asks to generate ideas), generating innovative app ideas for mind-blowing web and/or mobile applications with the following considerations:
+    - Focus on ideas that are suitable for experienced developers.
+    - Ensure the suggested ideas can reasonably be scoped and implemented within the given timeframe (48 hours by default if not otherwise specified).
+    - Generate the quantity of ideas specified (10 by default).
+    If the ideation task is not requested, just output the application subject.
+    The application subject is: {project}.
+    The current date is {current_date}.
+  expected_output: 'A list with 10 bullet points of the most relevant ideas or the application subject.'
+  agent: creative_innovative_team
+  human_input: True
+
+business_analysis_task:
+  description: >
+    If there was an ideation task, gather insights from it, analyze them, add your own insights, present them to the human, and let him/her to decide which of the ideas should be implemented.
+    If there was no ideation task, gather insights for future development based on {project}, present them to the human, and let him/her make the necessary decisions.
+    The current date is {current_date}.
+  expected_output: 'A list with 10 bullet points of the most relevant ideas and insights.'
+  context: [ideation_task]
+  agent: business_analyst
+  human_input: True

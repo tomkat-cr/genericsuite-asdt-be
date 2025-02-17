@@ -13,7 +13,7 @@ app = FastAPI()
 
 # Mount the static directory
 app.mount("/static", StaticFiles(
-    directory="genericsuite_asdt/static"),
+    directory="./static"),
     name="static")
 
 

@@ -13,23 +13,47 @@ update:
 lock:
 	poetry lock
 
+crewai_install:
+	bash scripts/run_crewai_agents.sh install
+
+crewai_update:
+	bash scripts/run_crewai_agents.sh update
+
+crewai_lock:
+	bash scripts/run_crewai_agents.sh lock
+
+camelai_install:
+	bash scripts/run_camelai_agents.sh install
+
+camelai_update:
+	bash scripts/run_camelai_agents.sh update
+
+camelai_lock:
+	bash scripts/run_camelai_agents.sh lock
+
 # Testing
 
-test:
-	bash scripts/run_agents.sh test
-
 crewai_test:
-	bash scripts/run_agents.sh crewai_test
+	bash scripts/run_crewai_agents.sh test
+
+crewai_other_test:
+	bash scripts/run_crewai_agents.sh crewai_test
+
+test: crewai_test
 
 # App run
 
-api:
-	bash scripts/run_agents.sh api
+crewai_run:
+	bash scripts/run_crewai_agents.sh run "${PROJECT}" "${TOPIC}"
 
-run:
-	bash scripts/run_agents.sh run "${PROJECT}" "${TOPIC}"
+crewai_api:
+	bash scripts/run_crewai_agents.sh api
 
-crewai_run: run
+api: crewai_api
+run: crewai_run
+
+camelai_run:
+	bash scripts/run_camelai_agents.sh run "${PROJECT}" "${TOPIC}"
 
 # Package publish
 
