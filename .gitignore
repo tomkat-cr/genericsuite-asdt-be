@@ -161,8 +161,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Directories create by ln -s
-genericsuite_asdt/camelai/genericsuite_asdt/tools/
-genericsuite_asdt/camelai/genericsuite_asdt/utils/
-genericsuite_asdt/crewai/genericsuite_asdt/tools/
-genericsuite_asdt/crewai/genericsuite_asdt/utils/
+# Directories created by ln -s
+genericsuite_asdt/camelai/genericsuite_asdt/tools
+genericsuite_asdt/camelai/genericsuite_asdt/utils
+genericsuite_asdt/crewai/genericsuite_asdt/tools
+genericsuite_asdt/crewai/genericsuite_asdt/utils
