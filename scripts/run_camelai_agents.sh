@@ -1,14 +1,14 @@
 #!/bin/bash
-# run_crewai_agents.sh
-# 2025-02-10 | CR
-# Run the GenericSuite CrewAI Agents
+# run_camelai_agents.sh
+# 2025-02-15 | CR
+# Run the GenericSuite Camel-AI Agents
 #
 set -e
 
 REPO_BASEDIR="`pwd`"
 cd "`dirname "$0"`"
 SCRIPTS_DIR="`pwd`"
-cd "${REPO_BASEDIR}"/genericsuite_asdt/crewai
+cd "${REPO_BASEDIR}"/genericsuite_asdt/camelai
 pwd
 poetry install
 
@@ -33,16 +33,16 @@ if [ "$ACTION" = "" ]; then
     ACTION="$1"
 fi
 if [ "$ACTION" = "" ]; then
-    echo "Usage: run_crewai_agents.sh <run|api|test|crewai_test>"
+    echo "Usage: run_camelai_agents.sh <run|api|test|camelai_test>"
     exit 1
 fi
 
 link_common_directories() {
-    if [ ! -d "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/utils" ]; then
-        ln -s "${REPO_BASEDIR}/genericsuite_asdt/utils" "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/utils"
+    if [ ! -d "${REPO_BASEDIR}/genericsuite_asdt/camelai/genericsuite_asdt/utils" ]; then
+        ln -s "${REPO_BASEDIR}/genericsuite_asdt/utils" "${REPO_BASEDIR}/genericsuite_asdt/camelai/genericsuite_asdt/utils"
     fi
-    if [ ! -d "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/tools" ]; then
-        ln -s "${REPO_BASEDIR}/genericsuite_asdt/tools" "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/tools"
+    if [ ! -d "${REPO_BASEDIR}/genericsuite_asdt/camelai/genericsuite_asdt/tools" ]; then
+        ln -s "${REPO_BASEDIR}/genericsuite_asdt/tools" "${REPO_BASEDIR}/genericsuite_asdt/camelai/genericsuite_asdt/tools"
     fi
 }
 
@@ -51,9 +51,9 @@ test() {
 	poetry run pytest tests
 }
 
-crewai_test() {
+camelai_test() {
     link_common_directories
-	# e.g. PROJECT="Generate blog posts for the most updated articles of the last week" TOPIC="AI LLMs" make crewai_test
+	# e.g. PROJECT="Generate blog posts for the most updated articles of the last week" TOPIC="AI LLMs" make camelai_test
 	poetry run test "${PROJECT}" "${TOPIC}"
 }
 
@@ -72,6 +72,11 @@ lock() {
     poetry lock
 }
 
+freeze() {
+    link_common_directories
+    poetry export --without-hashes --format=requirements.txt > requirements.txt
+}
+
 api() {
     link_common_directories
 	poetry run api
@@ -79,14 +84,14 @@ api() {
 
 run() {
     link_common_directories
-	# e.g. PROJECT="generate unit test based on pytest to all functions and methods in the repo https://github.com/tomkat-cr/genericsuite-be" TOPIC="" make crewai_run
-	# e.g. PROJECT="Generate blog posts for the most updated articles of the last week" TOPIC="AI LLMs" make crewai_run
-	poetry run run_crew "${PROJECT}" "${TOPIC}"
+	# e.g. PROJECT="generate unit test based on pytest to all functions and methods in the repo https://github.com/tomkat-cr/genericsuite-be" TOPIC="" make camelai_run
+	# e.g. PROJECT="Generate blog posts for the most updated articles of the last week" TOPIC="AI LLMs" make camelai_run
+	poetry run run_camelai "${PROJECT}" "${TOPIC}"
 }
 
 if [ "$ACTION" = "run" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI Agents"
+    echo "Run the GenericSuite Camel-AI Agents"
     echo ""
     if [ "$PROJECT" = "" ]; then
         PROJECT="$2"
@@ -105,36 +110,36 @@ if [ "$ACTION" = "run" ]; then
     run
 elif [ "$ACTION" = "api" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI API"
+    echo "Run the GenericSuite Camel-AI API"
     echo ""
     api
 elif [ "$ACTION" = "test" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI Tests"
+    echo "Run the GenericSuite Camel-AI Tests"
     echo ""
     test
-elif [ "$ACTION" = "crewai_test" ]; then
+elif [ "$ACTION" = "camelai_test" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI CrewAI Tests"
+    echo "Run the GenericSuite Camel-AI Camel-AI Tests"
     echo ""
-    crewai_test
+    camelai_test
 elif [ "$ACTION" = "install" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI poetry install"
+    echo "Run the GenericSuite Camel-AI poetry install"
     echo ""
     install
 elif [ "$ACTION" = "update" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI poetry update"
+    echo "Run the GenericSuite Camel-AI poetry update"
     echo ""
     update
 elif [ "$ACTION" = "lock" ]; then
     echo ""
-    echo "Run the GenericSuite CrewAI poetry lock"
+    echo "Run the GenericSuite Camel-AI poetry lock"
     echo ""
     lock
 else
     echo "Unknown action: $ACTION"
-    echo "Usage: run_crewai_agents.sh <run|api|test|crewai_test>"
+    echo "Usage: run_camelai_agents.sh <run|api|test|camelai_test>"
     exit 1
 fi

@@ -1,16 +1,24 @@
 import os
 
-from crewai import LLM
+from camel.models import ModelFactory, BaseModelBackend
+from camel.types import ModelPlatformType
+
+# from camel.types import ModelType
+# from camel.configs import ChatGPTConfig
+# from camel.messages import BaseMessage
+# from camel.agents import ChatAgent
 
 from genericsuite_asdt.utils.app_logger import log_debug
 from genericsuite_asdt.utils.utilities import (
     get_llm_provider,
     get_llm_name,
+    add_v1,
     get_default_llm_settings,
 )
 
-
 DEBUG = True
+
+USE_OLLAMA_AS_LITELLM = True
 
 
 def get_llm_data(
@@ -32,9 +40,10 @@ def get_llm_data(
     selected_llm_provider = get_llm_provider(llm_provider, agent_role)
     llm_config = {}
     llm_settings = get_default_llm_settings()
+    llm_other_data = {}
 
-    # LiteLLM models providers reference
-    # https://docs.litellm.ai/docs/providers
+    # CamelAI models providers reference
+    # https://docs.camel-ai.org/key_modules/models.html
 
     if selected_llm_provider == 'openai':
         # Using OpenAI's model
@@ -42,6 +51,7 @@ def get_llm_data(
             'OPENAI',
             'gpt-4o-mini',
             agent_role)
+        llm_config["model_platform"] = ModelPlatformType.OPENAI
         llm_config["api_key"] = os.environ.get('OPENAI_API_KEY')
 
     elif selected_llm_provider == 'google':
@@ -50,7 +60,9 @@ def get_llm_data(
             'GOOGLE',
             'gemini-pro',
             agent_role,
-            'gemini')
+            # 'gemini'
+        )
+        llm_config["model_platform"] = ModelPlatformType.GEMINI
         llm_config["api_key"] = os.environ.get('GOOGLE_API_KEY')
 
     elif selected_llm_provider == 'anthropic':
@@ -59,6 +71,7 @@ def get_llm_data(
             'ANTHROPIC',
             'claude-3-5-haiku-latest',
             agent_role)
+        llm_config["model_platform"] = ModelPlatformType.ANTHROPIC
         llm_config["api_key"] = os.environ.get('ANTHROPIC_API_KEY')
 
     elif selected_llm_provider == 'huggingface':
@@ -68,6 +81,7 @@ def get_llm_data(
             'meta-llama/Meta-Llama-3.1-8B-Instruct',
             agent_role,
             'huggingface')
+        llm_config["model_platform"] = ModelPlatformType.LITELLM
         llm_config["api_key"] = os.environ.get('HUGGINGFACE_API_KEY')
 
     elif selected_llm_provider == 'groq':
@@ -76,7 +90,9 @@ def get_llm_data(
             'GROQ',
             'mixtral-8x7b-32768',
             agent_role,
-            'groq')
+            # 'groq'
+        )
+        llm_config["model_platform"] = ModelPlatformType.GROQ
         llm_config["api_key"] = os.environ.get('GROQ_API_KEY')
 
     elif selected_llm_provider == 'aimlapi':
@@ -85,8 +101,10 @@ def get_llm_data(
             'AIMLAPI',
             'gpt-4o-mini-2024-07-18',
             agent_role,
-            'openai')
-        llm_config["base_url"] = "https://api.aimlapi.com"
+            # 'openai'
+        )
+        llm_config["model_platform"] = ModelPlatformType.AIML
+        # llm_config["base_url"] = "https://api.aimlapi.com"
         llm_config["api_key"] = os.environ.get('AIMLAPI_API_KEY')
 
     elif selected_llm_provider == 'together_ai':
@@ -95,9 +113,11 @@ def get_llm_data(
             'TOGETHER_AI',
             'meta-llama/Llama-3.3-70B-Instruct-Turbo-Free',
             agent_role,
-            'togethercomputer')
-        llm_config["base_url"] = "https://api.together.xyz/v1"
-        llm_config["stop"] = ["<|eot_id|>", "<|eom_id|>"]
+            # 'togethercomputer'
+        )
+        llm_config["model_platform"] = ModelPlatformType.TOGETHER
+        # llm_config["base_url"] = "https://api.together.xyz/v1"
+        # llm_config["stop"] = ["<|eot_id|>", "<|eom_id|>"]
         llm_config["api_key"] = os.environ.get('TOGETHER_AI_API_KEY')
 
     elif selected_llm_provider == 'openrouter':
@@ -106,28 +126,40 @@ def get_llm_data(
             'OPENROUTER',
             'google/gemini-2.0-flash-exp:free',
             agent_role,
-            'openrouter')
-        llm_config["base_url"] = "https://openrouter.ai/api/v1"
+            'openrouter'
+        )
+        llm_config["model_platform"] = ModelPlatformType.LITELLM
+        # llm_config["base_url"] = "https://openrouter.ai/api/v1"
         llm_config["api_key"] = os.environ.get('OPENROUTER_API_KEY')
 
     else:
         # Using Ollama's local model (default)
+        llm_config["base_url"] = os.environ.get(
+            'OLLAMA_BASE_URL', 'http://localhost:11434')
+        llm_other_data["use_tools"] = False
+        if USE_OLLAMA_AS_LITELLM:
+            llm_config["model_platform"] = ModelPlatformType.LITELLM
+            prefix = 'ollama'
+        else:
+            llm_config["base_url"] = add_v1(llm_config["base_url"])
+            llm_config["model_platform"] = ModelPlatformType.OLLAMA
+            prefix = None
         llm_name = get_llm_name(
             'OLLAMA',
             'llama3.2',
             agent_role,
-            'ollama')
-        llm_config["base_url"] = os.environ.get(
-            'OLLAMA_BASE_URL', 'http://localhost:11434')
-        llm_settings = {
-            "options": dict(llm_settings)
-        }
+            prefix
+        )
+        # llm_settings = {
+        #     "options": dict(llm_settings)
+        # }
 
     result = {
         'provider': selected_llm_provider,
         'name': llm_name,
         'config': llm_config,
-        'settings': llm_settings
+        'settings': llm_settings,
+        'other': llm_other_data,
     }
     # _ = DEBUG and log_debug(f'get_llm_data | result: {result}')
     return result
@@ -136,7 +168,7 @@ def get_llm_data(
 def get_llm_model_object(
     agent_role: str = None,
     llm_provider: str = None
-):
+) -> BaseModelBackend:
     """
     Get the LLM model object.
 
@@ -155,10 +187,13 @@ def get_llm_model_object(
     model_data = get_llm_data(agent_role, llm_provider)
 
     model_param = dict(model_data['config'])
-    model_param.update(dict(model_data['settings']))
-    model_param["model"] = model_data['name']
+    if "base_url" in model_param:
+        model_param['url'] = model_param['base_url']
+        del model_param['base_url']
+    model_param["model_config_dict"] = dict(model_data['settings'])
+    model_param["model_type"] = model_data['name']
 
-    llm = LLM(**model_param)
+    llm = ModelFactory.create(**model_param)
 
     _ = DEBUG and log_debug(
         '>> GET_LLM_MODEL_OBJECT'

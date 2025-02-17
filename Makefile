@@ -22,6 +22,15 @@ crewai_update:
 crewai_lock:
 	bash scripts/run_crewai_agents.sh lock
 
+camelai_install:
+	bash scripts/run_camelai_agents.sh install
+
+camelai_update:
+	bash scripts/run_camelai_agents.sh update
+
+camelai_lock:
+	bash scripts/run_camelai_agents.sh lock
+
 # Testing
 
 crewai_test:
@@ -42,6 +51,9 @@ crewai_api:
 
 api: crewai_api
 run: crewai_run
+
+camelai_run:
+	bash scripts/run_camelai_agents.sh run "${PROJECT}" "${TOPIC}"
 
 # Package publish
 
