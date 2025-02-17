@@ -4,7 +4,7 @@ Welcome to the GenericSuite Agentic Software Development Team (backend version).
 
 This project provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
 
-This project is powered by different Agentic Frameworks, like [CrewAI](https://crewai.com), [Camel AI](https://camel-ai.org), [LangGraph](https://www.langchain.com/langgraph) and [Smolagent](https://huggingface.co/docs/smolagents/index). With them, set up a multi-agent AI system is astraightforward, leveraging these powerful and flexible frameworks.
+This project is powered by different Agentic Frameworks, like [CrewAI](https://crewai.com), [Camel AI](https://camel-ai.org), [LangGraph](https://www.langchain.com/langgraph) and [Smolagent](https://huggingface.co/docs/smolagents/index). With them, set up a multi-agent AI system is straightforward, leveraging these powerful and flexible frameworks.
 
 The goal is to enable AI Agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
@@ -29,10 +29,15 @@ cd genericsuite-asdt-be
 
 ```bash
 make crewai_install
+```
+```bash
 make camelai_install
+```
+
+<!--
 make langgraph_install
 make smolagent_install
-```
+-->
 
 ### Customizing
 
