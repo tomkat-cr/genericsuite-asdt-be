@@ -1,5 +1,13 @@
 # GenericSuite Agentic Software Development Team (ASDT)
 
+<img 
+    align="right"
+    width="100"
+    height="100"
+    src="https://genericsuite.carlosjramirez.com/images/gs_ai_logo_circle.svg"
+    title="GenericSuite logo by Carlos J. Ramirez"
+/>
+
 Welcome to the GenericSuite Agentic Software Development Team (backend version).
 
 This project provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
