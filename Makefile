@@ -93,3 +93,10 @@ dev-prepare-pypi:
 dev-prepare-publish:
     # Just in case this package requires the "genericsuite-be" package...
 	# if ! poetry remove genericsuite; then echo "'genericsuite' was not removed..."; else "'genericsuite' removed successfully..."; fi;
+
+sast-test:
+	snyk code test --severity-threshold=high --all-projects .
+	snyk test --severity-threshold=high --all-projects .
+
+agents_md_link:
+	ln -s CLAUDE.md AGENTS.md

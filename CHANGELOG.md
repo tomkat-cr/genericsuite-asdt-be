@@ -5,52 +5,60 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 
 
-## Unreleased
----
+## [Unreleased] - Date
 
-### New
+### Added
 
-### Changes
+### Changed
 
-### Fixes
+### Fixed
 
-### Breaks
+### Removed
 
-
-## Unreleased
-## 0.2.0 (2025-02-27)
----
-
-### Changes
-README typos and wording [GS-128].
+### Security
 
 
-## 0.1.0 (2025-02-17)
----
+## [Unreleased] - 2026-04-19
 
-### New
-Add LLM selection and configuration using environment variables, and including OpenAI, Google, Ollama, Anthropic, Hugging Face, Groq, NVIDIA, X AI, Together AI, AI/ML API and OpenRouter [GS-128].
-Add the ideation task to generate ideas for the "AIstronauts-Space Agents on a mission hackathon" from lablab.ai [GS-55].
-Add different environment variables for coding, reasoning, planning and management llms and models, so normal agents, manager agent and planning agent can use them [GS-128].
-Add the planning agent, so the code generation actions are fired and iterated [GS-128].
-Add "openlit" monitoring tool [GS-128].
-Add "agentops" monitoring tool [GS-128].
-Add generate output files on each task [GS-128].
-Add automatic generation of the crew, agents and tasks directly from the yaml files with no wrappers (decorated class and methods) [GS-128].
-Add "allow_code_execution" to developer and automated testing agents [GS-128].
-Add reading-from-file feature to `project` and `topic` inputs (content enclosed by square brackets means it's a file path) [GS-128].
-Add "examples/instructions.md" to build the `project` input as a PRD file (Product Requirements Document) [GS-128].
-Add Camel-AI agent society to the agent libraries.
-
-### Changes
-Change: remove the GenericSuite dependency.
-
-### Fixes
-Fix the agents and task prompts to effectively work as a team [GS-128].
+### Added
+- AGENTS.md and CLAUDE.md files to provide context and instructions to AI agents [GS-303].
+- Add SAST testing [GS-315].
 
 
-## 0.0.1 (2024-09-15)
----
+## [0.2.0] - 2025-02-27
 
-### New
-Project creation during the "AI Agents Hack With Lablab.ai and MindsDB" hackathon.
+### Changed
+- README typos and wording [GS-128].
+
+### Security
+- Update crewai, setuptools, fastapi, uvicorn, python-multipart, openlit, and pyyaml to the latest version to upgrade `uv` to 0.8.8 to fix "Interpretation Conflict", CVE-2025-54368 CWE-20 CWE-436
+ [GS-219].
+
+
+## [0.1.0] - 2025-02-17
+
+### Added
+- Add LLM selection and configuration using environment variables, and including OpenAI, Google, Ollama, Anthropic, Hugging Face, Groq, NVIDIA, X AI, Together AI, AI/ML API and OpenRouter [GS-128].
+- Add the ideation task to generate ideas for the "AIstronauts-Space Agents on a mission hackathon" from lablab.ai [GS-55].
+- Add different environment variables for coding, reasoning, planning and management llms and models, so normal agents, manager agent and planning agent can use them [GS-128].
+- Add the planning agent, so the code generation actions are fired and iterated [GS-128].
+- Add "openlit" monitoring tool [GS-128].
+- Add "agentops" monitoring tool [GS-128].
+- Add generate output files on each task [GS-128].
+- Add automatic generation of the crew, agents and tasks directly from the yaml files with no wrappers (decorated class and methods) [GS-128].
+- Add "allow_code_execution" to developer and automated testing agents [GS-128].
+- Add reading-from-file feature to `project` and `topic` inputs (content enclosed by square brackets means it's a file path) [GS-128].
+- Add "examples/instructions.md" to build the `project` input as a PRD file (Product Requirements Document) [GS-128].
+- Add Camel-AI agent society to the agent libraries.
+
+### Changed
+- Change: remove the GenericSuite dependency.
+
+### Fixed
+- Fix the agents and task prompts to effectively work as a team [GS-128].
+
+
+## [0.0.1] - 2024-09-15
+
+### Added
+- Project creation during the "AI Agents Hack With Lablab.ai and MindsDB" hackathon.
