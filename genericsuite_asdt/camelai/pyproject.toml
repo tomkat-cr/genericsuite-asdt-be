@@ -11,7 +11,7 @@ classifiers = [
     'Development Status :: 3 - Alpha',
     'Environment :: Console',
     'Intended Audience :: Developers',
-    "License :: OSI Approved :: ISC License",
+    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
@@ -33,7 +33,7 @@ name = "genericsuite_asdt_camelai"
 version = "0.1.0"
 description = "GenericSuite Agentic Software Development Team (ASDT) backend, CamelAI version"
 authors = ["Carlos J. Ramirez <tomkat_cr@yahoo.com>"]
-license = "ISC"
+license = "MIT"
 readme = "README.md"
 repository = "https://github.com/tomkat-cr/genericsuite-asdt-be.git"
 homepage = "https://genericsuite.carlosjramirez.com/Backend-Development/GenericSuite-ASDT/"

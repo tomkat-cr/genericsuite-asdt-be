@@ -172,7 +172,7 @@ Please feel free to suggest improvements, report bugs, or make a contribution to
 
 ## License
 
-This project is licensed under the terms of the ISC license. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for details.
 
 ## Credits
 
