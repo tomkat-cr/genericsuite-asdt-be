@@ -4,7 +4,7 @@ This file provides guidance to AI Coding Assistants (Claude Code, Gemini CLI, Cu
 
 ## Project Overview
 
-GenericSuite Agentic Software Development Team (ASDT) is a multi-agent AI system that orchestrates AI agents to collaborate on software development tasks (coding, testing, architecture, DevOps, etc.). The repo supports multiple agent frameworks: **CrewAI** (primary), **CamelAI**, LangGraph, and Smolagents.
+GenericSuite Agentic Software Development Team (ASDT) is a multi-agent AI system that orchestrates AI agents to collaborate on software development tasks (coding, testing, architecture, DevOps, etc.). The repo supports multiple agent frameworks: **CrewAI** (primary) and **CamelAI** (LangGraph, and Smolagents planned).
 
 ## Repository Structure
 

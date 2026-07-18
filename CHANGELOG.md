@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 
 
-## [Unreleased] - Date
+## [Unreleased] - YYYY-MM-DD
 
 ### Added
 
@@ -26,6 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Changed
 - License changed to MIT [FA-244].
+- Change documentation so LangGraph and Smolagents are planned, not supported yet.
 
 
 ## [0.2.0] - 2025-02-27

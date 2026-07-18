@@ -10,7 +10,7 @@
 
 The [GenericSuite](https://genericsuite.carlosjramirez.com) Agentic Software Development Team ([ASDT](https://github.com/tomkat-cr/genericsuite-asdt-be)) provides a team of autonomous entities designed to solve software development problems using AI to make decisions, learn from interactions, and adapt to changing conditions without human intervention.
 
-This project is powered by different Agentic Frameworks, like [CrewAI](https://crewai.com), [Camel AI](https://camel-ai.org), [LangGraph](https://www.langchain.com/langgraph) and [Smolagent](https://huggingface.co/docs/smolagents/index). With them, set up a multi-agent AI system is straightforward, leveraging these powerful and flexible frameworks.
+This project is powered by different Agentic Frameworks, like [CrewAI](https://crewai.com) and [Camel AI](https://camel-ai.org) ([LangGraph](https://www.langchain.com/langgraph) and [Smolagent](https://huggingface.co/docs/smolagents/index) planned). With them, set up a multi-agent AI system is straightforward, leveraging these powerful and flexible frameworks.
 
 The goal is to enable AI Agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
