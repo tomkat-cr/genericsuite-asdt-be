@@ -9,8 +9,11 @@ REPO_BASEDIR="`pwd`"
 cd "`dirname "$0"`"
 SCRIPTS_DIR="`pwd`"
 cd "${REPO_BASEDIR}"/genericsuite_asdt/crewai
+
+echo ""
+echo "Running in:"
 pwd
-poetry install
+echo ""
 
 ENV_FILE="${REPO_BASEDIR}/.env"
 if [ ! -f "${ENV_FILE}" ]; then
@@ -29,6 +32,10 @@ then
 fi
 set +o allexport ;
 
+PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
+poetry env use ${PYTHON_VERSION}
+poetry install
+
 if [ "$ACTION" = "" ]; then
     ACTION="$1"
 fi
@@ -39,10 +46,10 @@ fi
 
 link_common_directories() {
     if [ ! -d "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/utils" ]; then
-        ln -s "${REPO_BASEDIR}/genericsuite_asdt/utils" "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/utils"
+        ln -sf "${REPO_BASEDIR}/genericsuite_asdt/utils" "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/utils"
     fi
     if [ ! -d "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/tools" ]; then
-        ln -s "${REPO_BASEDIR}/genericsuite_asdt/tools" "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/tools"
+        ln -sf "${REPO_BASEDIR}/genericsuite_asdt/tools" "${REPO_BASEDIR}/genericsuite_asdt/crewai/genericsuite_asdt/tools"
     fi
 }
 
@@ -65,6 +72,10 @@ install() {
 update() {
     link_common_directories
     poetry update
+}
+
+upgrade() {
+    poetry add setuptools@latest fastapi@latest uvicorn@latest python-multipart@latest openlit@latest pyyaml@latest 'crewai[agentops,tools]@latest'
 }
 
 lock() {
@@ -128,6 +139,11 @@ elif [ "$ACTION" = "update" ]; then
     echo "Run the GenericSuite CrewAI poetry update"
     echo ""
     update
+elif [ "$ACTION" = "upgrade" ]; then
+    echo ""
+    echo "Run the GenericSuite CrewAI poetry upgrade"
+    echo ""
+    upgrade
 elif [ "$ACTION" = "lock" ]; then
     echo ""
     echo "Run the GenericSuite CrewAI poetry lock"

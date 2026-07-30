@@ -43,9 +43,9 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-openlit = "^1.33.8"
-pyyaml = "^6.0.2"
-camel-ai = {extras = ["all"], version = "^0.2.21"}
+openlit = "^1.44.0"
+pyyaml = "^6.0.3"
+camel-ai = {extras = ["all"], version = "^0.2.90"}
 
 [tool.poetry.scripts]
 genericsuite_asdt_camelai = "genericsuite_asdt.main:run"

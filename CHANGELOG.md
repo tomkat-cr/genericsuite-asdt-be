@@ -27,6 +27,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Changed
 - License changed to MIT [FA-244].
 - Change documentation so LangGraph and Smolagents are planned, not supported yet.
+- Enhance Makefile and scripts for Python version management and upgrade commands [GS-219].
+- Update dependencies in pyproject.toml and poetry.lock for improved compatibility and security fixes [GS-219].
+
+### Removed
+Remove outdated and empty requirements.txt file [GS-219].
 
 
 ## [0.2.0] - 2025-02-27

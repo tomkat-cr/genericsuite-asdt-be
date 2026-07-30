@@ -43,13 +43,13 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-setuptools = "^80.9.0"
-fastapi = "^0.116.1"
-uvicorn = "^0.35.0"
-python-multipart = "^0.0.20"
-openlit = "^1.35.0"
-crewai = {extras = ["agentops", "tools"], version = "^0.157.0"}
-pyyaml = "^6.0.2"
+setuptools = "^83.0.0"
+fastapi = "^0.141.1"
+uvicorn = "^0.52.0"
+python-multipart = "^0.0.32"
+openlit = "^1.44.0"
+crewai = {extras = ["agentops", "tools"], version = "^1.15.8"}
+pyyaml = "^6.0.3"
 
 [build-system]
 requires = ["poetry-core"]

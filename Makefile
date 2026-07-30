@@ -1,6 +1,8 @@
 # .DEFAULT_GOAL := local
 .PHONY: install update lock test crewai_test requirements lock-rebuild build publish-test publish dev-prepare-local dev-prepare-git dev-prepare-pypi dev-prepare-publish 
 SHELL := /bin/bash
+PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
+
 
 # App management
 
@@ -9,6 +11,10 @@ install:
 
 update:
 	poetry update
+
+upgrade:
+	poetry env use ${PYTHON_VERSION}
+	poetry add setuptools@latest fastapi@latest uvicorn@latest python-multipart@latest openlit@latest pyyaml@latest 'crewai[agentops,tools]@latest'
 
 lock:
 	poetry lock
@@ -19,6 +25,9 @@ crewai_install:
 crewai_update:
 	bash scripts/run_crewai_agents.sh update
 
+crewai_upgrade:
+	bash scripts/run_crewai_agents.sh upgrade
+
 crewai_lock:
 	bash scripts/run_crewai_agents.sh lock
 
@@ -27,6 +36,9 @@ camelai_install:
 
 camelai_update:
 	bash scripts/run_camelai_agents.sh update
+
+camelai_upgrade:
+	bash scripts/run_camelai_agents.sh upgrade
 
 camelai_lock:
 	bash scripts/run_camelai_agents.sh lock
@@ -94,6 +106,7 @@ dev-prepare-publish:
     # Just in case this package requires the "genericsuite-be" package...
 	# if ! poetry remove genericsuite; then echo "'genericsuite' was not removed..."; else "'genericsuite' removed successfully..."; fi;
 
-sast-test:
+sast-test: update crewai_upgrade camelai_upgrade
+	snyk auth
 	snyk code test --severity-threshold=high --all-projects .
 	snyk test --severity-threshold=high --all-projects .

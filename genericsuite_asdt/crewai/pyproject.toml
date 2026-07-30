@@ -43,13 +43,13 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-setuptools = "^75.0.0"
-fastapi = "^0.114.2"
-uvicorn = "^0.30.6"
-python-multipart = "^0.0.9"
-openlit = "^1.33.8"
-crewai = {extras = ["agentops", "tools"], version = "^0.100.1"}
-pyyaml = "^6.0.2"
+setuptools = "^83.0.0"
+fastapi = "^0.141.1"
+uvicorn = "^0.52.0"
+python-multipart = "^0.0.32"
+openlit = "^1.44.0"
+crewai = {extras = ["agentops", "tools"], version = "^1.15.8"}
+pyyaml = "^6.0.3"
 
 [tool.poetry.scripts]
 genericsuite_asdt_crewai = "genericsuite_asdt.main:run"
