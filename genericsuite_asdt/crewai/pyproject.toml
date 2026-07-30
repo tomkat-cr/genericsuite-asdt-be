@@ -48,7 +48,7 @@ fastapi = "^0.141.1"
 uvicorn = "^0.52.0"
 python-multipart = "^0.0.32"
 openlit = "^1.44.0"
-crewai = {extras = ["agentops", "tools"], version = "^1.15.8"}
+crewai = {extras = ["agentops", "tools"], version = "^1.15.9"}
 pyyaml = "^6.0.3"
 
 [tool.poetry.scripts]

@@ -23,15 +23,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Added
 - AGENTS.md, GEMINI.md, and CLAUDE.md files to provide context and instructions to AI Coding Assistants [GS-303].
 - Add SAST testing [GS-315].
+- `make upgrade`, `make crewai_upgrade`, and `make camelai_upgrade` commands to upgrade dependencies to the latest version and fix vulnerabilities [GS-219].
 
 ### Changed
 - License changed to MIT [FA-244].
-- Change documentation so LangGraph and Smolagents are planned, not supported yet.
+- Change documentation so LangGraph and Smolagents are planned, not supported yet [GS-327].
 - Enhance Makefile and scripts for Python version management and upgrade commands [GS-219].
-- Update dependencies in pyproject.toml and poetry.lock for improved compatibility and security fixes [GS-219].
+- Update dependencies in all Python projects pyproject.toml and poetry.lock for improved compatibility and security fixes [GS-219].
 
 ### Removed
-Remove outdated and empty requirements.txt file [GS-219].
+- Remove outdated and empty requirements.txt file [GS-219].
 
 
 ## [0.2.0] - 2025-02-27

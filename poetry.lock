@@ -836,14 +836,14 @@ files = [
 
 [[package]]
 name = "crewai"
-version = "1.15.8"
+version = "1.15.9"
 description = "Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks."
 optional = false
 python-versions = "<3.14,>=3.10"
 groups = ["main"]
 files = [
-    {file = "crewai-1.15.8-py3-none-any.whl", hash = "sha256:81d32fcacfeecadf2be4adb33ca844b39bba2797a39f88754c8ca51c2a21e3c6"},
-    {file = "crewai-1.15.8.tar.gz", hash = "sha256:f99532849e77db9af237ffd836fec7e368495d1bb86aec3eca192a9dc404666f"},
+    {file = "crewai-1.15.9-py3-none-any.whl", hash = "sha256:ece83a168e0ae369ad1a9ec1309b9da316382f9f555363a736731c8469fad4bd"},
+    {file = "crewai-1.15.9.tar.gz", hash = "sha256:e498281a5cbfd9e0ef5c45e5825c0624e2b67949a738e943c974f1ebe94256fe"},
 ]
 
 [package.dependencies]
@@ -853,9 +853,9 @@ appdirs = ">=1.4.4,<1.5.0"
 cel-python = ">=0.5.0,<0.6"
 chromadb = ">=1.1.0,<1.2.0"
 click = ">=8.1.7,<9"
-crewai-cli = "1.15.8"
-crewai-core = "1.15.8"
-crewai-tools = {version = "1.15.8", optional = true, markers = "extra == \"tools\""}
+crewai-cli = "1.15.9"
+crewai-core = "1.15.9"
+crewai-tools = {version = "1.15.9", optional = true, markers = "extra == \"tools\""}
 httpx = ">=0.28.1,<0.29.0"
 instructor = ">=1.3.3"
 json-repair = ">=0.60.1,<0.61.0"
@@ -896,27 +896,27 @@ openpyxl = ["openpyxl (>=3.1.5,<3.2.0)"]
 pandas = ["pandas (>=2.2.3,<2.3.0)"]
 qdrant = ["qdrant-client[fastembed] (>=1.14.3,<1.15.0)"]
 qdrant-edge = ["qdrant-edge-py (>=0.6.0)"]
-tools = ["crewai-tools (==1.15.8)"]
+tools = ["crewai-tools (==1.15.9)"]
 voyageai = ["voyageai (>=0.3.5,<0.4.0)"]
 watson = ["ibm-watsonx-ai (>=1.3.39,<1.4.0)"]
 
 [[package]]
 name = "crewai-cli"
-version = "1.15.8"
+version = "1.15.9"
 description = "CLI for CrewAI — scaffold, run, deploy and manage AI agent crews."
 optional = false
 python-versions = "<3.14,>=3.10"
 groups = ["main"]
 files = [
-    {file = "crewai_cli-1.15.8-py3-none-any.whl", hash = "sha256:1d8144d035d6457d18a45ee1448c158b18c4ebd8992486fb706331f310ce1ceb"},
-    {file = "crewai_cli-1.15.8.tar.gz", hash = "sha256:716eb189d29bf92c36570c9d9cf6221a80b907f65578714c8b5be3e31f4d537b"},
+    {file = "crewai_cli-1.15.9-py3-none-any.whl", hash = "sha256:c14a9115790359cf6d708f9a47c8c5dcfe4db5b77f4730233dbbea4b8c77ae27"},
+    {file = "crewai_cli-1.15.9.tar.gz", hash = "sha256:6f24998a435cb8d8a30e7fc6cc161e8501870daf9f9eabea6d4977e808c829f4"},
 ]
 
 [package.dependencies]
 appdirs = ">=1.4.4,<1.5.0"
 certifi = "*"
 click = ">=8.1.7,<9"
-crewai-core = "1.15.8"
+crewai-core = "1.15.9"
 cryptography = ">=42.0"
 httpx = ">=0.28.1,<0.29.0"
 packaging = ">=23.0"
@@ -932,14 +932,14 @@ uv = ">=0.11.6,<0.12.0"
 
 [[package]]
 name = "crewai-core"
-version = "1.15.8"
+version = "1.15.9"
 description = "Shared utilities for CrewAI — version, paths, user-data, telemetry, printer."
 optional = false
 python-versions = "<3.14,>=3.10"
 groups = ["main"]
 files = [
-    {file = "crewai_core-1.15.8-py3-none-any.whl", hash = "sha256:ba2de39170470fe2579c11e8909471169b23c16a221d1bae5e1afdc195682baa"},
-    {file = "crewai_core-1.15.8.tar.gz", hash = "sha256:64e570b5e4d80caba439f2c87f9370cb9e8014a4824c62543bd33c3807f53b1b"},
+    {file = "crewai_core-1.15.9-py3-none-any.whl", hash = "sha256:345b685433fd84b289b07e8d1c2a279378b9bdda320ce3ffb8ab3d4259ac14d0"},
+    {file = "crewai_core-1.15.9.tar.gz", hash = "sha256:84f9045583e751366fe23fb21c921eb34bcdc6c5942ee06a9daedad5e4de1c5d"},
 ]
 
 [package.dependencies]
@@ -958,19 +958,19 @@ tomli = ">=2.0.2,<2.1.0"
 
 [[package]]
 name = "crewai-tools"
-version = "1.15.8"
+version = "1.15.9"
 description = "Set of tools for the crewAI framework"
 optional = false
 python-versions = "<3.14,>=3.10"
 groups = ["main"]
 files = [
-    {file = "crewai_tools-1.15.8-py3-none-any.whl", hash = "sha256:b22a0af459f6a5dbd0cc80a122720bdd970e6290284d039870c7b1950fd08730"},
-    {file = "crewai_tools-1.15.8.tar.gz", hash = "sha256:bb500e45af3a97ed3e92efaa0ebe900cfecbcdf608c453b646265c36db8aea1a"},
+    {file = "crewai_tools-1.15.9-py3-none-any.whl", hash = "sha256:1a42c9d82e37f0113cd9434d15ddd690b6f7bd503681df7fb9b676abeb483dc0"},
+    {file = "crewai_tools-1.15.9.tar.gz", hash = "sha256:ef9c163a360d3e87419ba3881f46ace2422a44cb8dada1139cfd8511ae932c5d"},
 ]
 
 [package.dependencies]
 beautifulsoup4 = ">=4.13.4,<4.14.0"
-crewai = "1.15.8"
+crewai = "1.15.9"
 pymupdf = ">=1.26.6,<1.27.0"
 python-docx = ">=1.2.0,<1.3.0"
 pytube = ">=15.0.0,<15.1.0"
