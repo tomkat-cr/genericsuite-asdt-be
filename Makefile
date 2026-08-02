@@ -1,7 +1,7 @@
 # .DEFAULT_GOAL := local
 .PHONY: install update lock test crewai_test requirements lock-rebuild build publish-test publish dev-prepare-local dev-prepare-git dev-prepare-pypi dev-prepare-publish 
 SHELL := /bin/bash
-PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
+PYTHON_VERSION="${PYTHON_VERSION:-3.14}"
 
 
 # App management

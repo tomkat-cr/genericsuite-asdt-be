@@ -31,6 +31,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Enhance Makefile and scripts for Python version management and upgrade commands [GS-219].
 - Update dependencies in all Python projects pyproject.toml and poetry.lock for improved compatibility and security fixes [GS-219].
 
+### Security
+- Migrate to Python 3.14 [GS-337].
+
 ### Removed
 - Remove outdated and empty requirements.txt file [GS-219].
 
