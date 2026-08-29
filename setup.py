@@ -18,7 +18,7 @@ classifiers = [
     'Development Status :: 3 - Alpha',
     'Environment :: Console',
     'Intended Audience :: Developers',
-    'License :: OSI Approved :: ISC License',
+    'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
@@ -37,7 +37,7 @@ setup(
     author='Carlos J. Ramirez',
     author_email='tomkat_cr@yahoo.com',
     url='https://github.com/tomkat-cr/genericsuite-asdt-be',
-    license='ISC License',
+    license='MIT License',
     py_modules=['genericsuite_asdt'],
     classifiers=classifiers,
 )

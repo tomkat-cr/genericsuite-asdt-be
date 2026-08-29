@@ -166,3 +166,13 @@ genericsuite_asdt/camelai/genericsuite_asdt/tools
 genericsuite_asdt/camelai/genericsuite_asdt/utils
 genericsuite_asdt/crewai/genericsuite_asdt/tools
 genericsuite_asdt/crewai/genericsuite_asdt/utils
+
+# Claude Code
+.claude/settings.local.json
+
+# AI Agents
+.claude
+.agents
+.codex
+.cursor
+.gemini
