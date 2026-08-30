@@ -1,6 +1,6 @@
 from setuptools import setup
 
-version = '0.1.0'
+version = '0.3.0'
 description = 'GenericSuite Agentic Software Development Team (ASDT) backend.'
 long_description = '''
 The GenericSuite ASDT

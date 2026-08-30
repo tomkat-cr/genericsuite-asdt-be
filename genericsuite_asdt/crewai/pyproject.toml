@@ -1,6 +1,6 @@
 [project]
 name = "genericsuite_asdt_crewai"
-version = "0.1.0"
+version = "0.3.0"
 authors = [
     { name="Carlos J. Ramirez", email="tomkat_cr@yahoo.com" }
 ]
@@ -30,7 +30,7 @@ Issues = "https://github.com/tomkat-cr/genericsuite-asdt-be/issues"
 
 [tool.poetry]
 name = "genericsuite_asdt_crewai"
-version = "0.1.0"
+version = "0.3.0"
 description = "GenericSuite Agentic Software Development Team (ASDT) backend, CrewAI version"
 authors = ["Carlos J. Ramirez <tomkat_cr@yahoo.com>"]
 license = "MIT"

@@ -42,6 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Changed
 - README typos and wording [GS-128].
+- Update version to 0.3.0 in pyproject.toml and setup.py for all components of the GenericSuite ASDT project [GS-327].
 
 ### Security
 - Update crewai, setuptools, fastapi, uvicorn, python-multipart, openlit, and pyyaml to the latest version to upgrade `uv` to 0.8.8 to fix "Interpretation Conflict", CVE-2025-54368 CWE-20 CWE-436
