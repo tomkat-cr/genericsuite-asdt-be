@@ -30,6 +30,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 - Change documentation so LangGraph and Smolagents are planned, not supported yet [GS-327].
 - Enhance Makefile and scripts for Python version management and upgrade commands [GS-219].
 - Update dependencies in all Python projects pyproject.toml and poetry.lock for improved compatibility and security fixes [GS-219].
+- Update version to 0.3.0 in pyproject.toml and setup.py for all components of the GenericSuite ASDT project [GS-327].
 
 ### Security
 - Migrate to Python 3.14 [GS-337].
